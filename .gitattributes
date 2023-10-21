@@ -1,1 +1,2 @@
 src/sha2_ffi* linguist-vendored
+src/noble-hashes/** linguist-vendored
