@@ -1,5 +1,6 @@
 import gleeunit
 import gleeunit/should
+import gleam/bit_string
 import glesha2
 
 pub fn main() {
@@ -13,8 +14,7 @@ pub fn sha224_empty_test() {
     176, 31, 130, 142, 166, 42, 197, 179, 228, 47,
   >>
 
-  hash
-  |> should.equal(expected)
+  should.equal(hash, expected)
 }
 
 pub fn sha256_empty_test() {
@@ -24,8 +24,7 @@ pub fn sha256_empty_test() {
     39, 174, 65, 228, 100, 155, 147, 76, 164, 149, 153, 27, 120, 82, 184, 85,
   >>
 
-  hash
-  |> should.equal(expected)
+  should.equal(hash, expected)
 }
 
 pub fn sha384_empty_test() {
@@ -36,8 +35,7 @@ pub fn sha384_empty_test() {
     222, 191, 231, 111, 101, 251, 213, 26, 210, 241, 72, 152, 185, 91,
   >>
 
-  hash
-  |> should.equal(expected)
+  should.equal(hash, expected)
 }
 
 pub fn sha512_empty_test() {
@@ -49,6 +47,37 @@ pub fn sha512_empty_test() {
     185, 49, 189, 71, 65, 122, 129, 165, 56, 50, 122, 249, 39, 218, 62,
   >>
 
-  hash
-  |> should.equal(expected)
+  should.equal(hash, expected)
+}
+
+pub fn sha512_test() {
+  let hash =
+    "howdy!"
+    |> bit_string.from_string()
+    |> glesha2.hash(glesha2.Sha512)
+    |> glesha2.hex()
+
+  let expected =
+    "d3799df317dfcca3527b8601c9fc0f1209be5551fe68c5d76cd15089fcaaa61bd2eb43ff0b919793f4674e00a5c7427cab7f2e153edb230922e5e96ddd3f6269"
+
+  should.equal(hash, expected)
+}
+
+pub fn sha256_hmac_test() {
+  let key = bit_string.from_string("Jefe")
+
+  let data =
+    "what do ya want "
+    |> bit_string.from_string()
+    |> bit_string.append(bit_string.from_string("for nothing?"))
+
+  let hmac =
+    data
+    |> glesha2.hmac(key, glesha2.Sha256)
+    |> glesha2.hex()
+
+  let expected =
+    "5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843"
+
+  should.equal(hmac, expected)
 }

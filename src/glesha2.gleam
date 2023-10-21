@@ -20,15 +20,10 @@ pub fn hmac(
   algorithm: HashAlgorithm,
 ) -> BitString
 
-pub fn main() {
-  io.debug(hash(bit_string.from_string("trying out"), Sha224))
-  io.debug(hash(bit_string.from_string("trying out"), Sha256))
-  io.debug(hash(bit_string.from_string("trying out"), Sha384))
-  io.debug(hash(bit_string.from_string("trying out"), Sha512))
+@external(erlang, "sha2_ffi", "hex")
+@external(javascript, "./sha2_ffi.mjs", "hex")
+pub fn hex(input: BitString) -> String
 
-  io.debug(hmac(
-    bit_string.from_string("trying out"),
-    bit_string.from_string("lol"),
-    Sha256,
-  ))
+pub fn main() {
+  io.println(hex(hash(bit_string.from_string("trying out"), Sha224)))
 }

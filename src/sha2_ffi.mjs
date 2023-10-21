@@ -19,6 +19,14 @@ export function hmac(data, key, algorithm) {
   return new BitString(nhHmac(hasher, keyBuffer, dataBuffer));
 }
 
+export function hex(input) {
+  const inputBuffer = input.buffer;
+
+  return [...inputBuffer]
+    .map(v => v.toString(16).padStart(2, "0"))
+    .join("");
+}
+
 function getHashFunction(algorithm) {
   switch (algorithm.constructor.name) {
     case "Sha224":
