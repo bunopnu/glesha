@@ -4,10 +4,8 @@ description = "SHA-2 for Gleam"
 licences = ["MIT"]
 repository = { type = "github", user = "bunopnu", repo = "glesha2" }
 
-[dependencies]
-gleam_stdlib = "~> 0.31"
-
 [dev-dependencies]
+gleam_stdlib = "~> 0.31"
 gleeunit = "~> 0.10"
 
 [javascript.deno]

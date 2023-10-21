@@ -8,7 +8,7 @@ SHA-2 for Gleam, supporting both Erlang and JavaScript 💖
 
 ## Installation
 
-Execute following command to add library:
+To add the library, simply execute the following command:
 
 ```sh
 gleam add glesha2
@@ -26,7 +26,7 @@ gleam add glesha2
 
 ## Reliability
 
-This package is using the battle-tested [`crypto`](https://www.erlang.org/doc/man/crypto) module for Erlang/OTP and the reputable [`noble-hashes`](https://github.com/paulmillr/noble-hashes) library for JavaScript.
+This package uses the battle-tested [`crypto`](https://www.erlang.org/doc/man/crypto) module for Erlang/OTP and the reputable [`noble-hashes`](https://github.com/paulmillr/noble-hashes) library for JavaScript.
 
 ## Documentation
 
