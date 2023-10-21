@@ -1,8 +1,8 @@
-name = "glesha2"
+name = "glesha"
 version = "0.1.0"
 description = "SHA-2 for Gleam"
 licences = ["MIT"]
-repository = { type = "github", user = "bunopnu", repo = "glesha2" }
+repository = { type = "github", user = "bunopnu", repo = "glesha" }
 
 [dev-dependencies]
 gleam_stdlib = "~> 0.31"

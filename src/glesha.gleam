@@ -1,4 +1,4 @@
-//// Documentation for Glesha2.
+//// Documentation for Glesha.
 
 /// Represents available hash algorithms.
 pub type HashAlgorithm {
