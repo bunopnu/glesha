@@ -2,6 +2,7 @@ import { sha224, sha256, sha384, sha512 } from "./nh_sha2.mjs"
 import { hmac as nhHmac } from "./nh_hmac.mjs"
 
 import { BitString } from "./gleam.mjs"
+import { Sha224, Sha256, Sha384, Sha512 } from "./glesha.mjs"
 
 export function hash(data, algorithm) {
   const dataBuffer = data.buffer;
@@ -28,14 +29,15 @@ export function encode_hex(input) {
 }
 
 function getHashFunction(algorithm) {
-  switch (algorithm.constructor.name) {
-    case "Sha224":
-     return sha224;
-    case "Sha256":
-     return sha256;
-    case "Sha384":
-     return sha384;
-    case "Sha512":
-     return sha512;
- }
+  if (algorithm instanceof Sha224) {
+    return sha224;
+  } else if (algorithm instanceof Sha256) {
+    return sha256;
+  } else if (algorithm instanceof Sha384) {
+    return sha384;
+  } else if (algorithm instanceof Sha512) {
+    return sha512;
+  } else {
+    throw new Error("Unknown algorithm")
+  }
 }
