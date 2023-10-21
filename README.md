@@ -34,4 +34,4 @@ Consult the [HexDocs](https://hexdocs.pm/glesha/) for API reference.
 
 ## License
 
-glesha is licensed under the MIT license.
+Glesha is licensed under the MIT license.
