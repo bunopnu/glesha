@@ -1,12 +1,15 @@
 name = "glesha"
-version = "0.1.0"
+version = "0.1.1"
 description = "SHA-2 for Gleam"
+
 licences = ["MIT"]
 repository = { type = "github", user = "bunopnu", repo = "glesha" }
 
-[dev-dependencies]
+[dependencies]
 gleam_stdlib = "~> 0.31"
-gleeunit = "~> 0.10"
+
+[dev-dependencies]
+gleeunit = "~> 0.11"
 
 [javascript.deno]
 allow_read = ["./"]
