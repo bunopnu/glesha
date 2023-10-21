@@ -5,31 +5,33 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Gleam
-      - uses: erlef/setup-beam@v1
+        uses: erlef/setup-beam@v1
         with:
           otp-version: "26"
           gleam-version: "0.31.0"
           rebar3-version: "3"
 
-      - uses: denoland/setup-deno@v1
+      - name: Set up Deno
+        uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
 
       - name: Check Format
-      - run: gleam format --check src test
+        run: gleam format --check src test
 
       - name: Get Dependencies
-      - run: gleam deps download
+        run: gleam deps download
 
       - name: Test (Erlang)
-      - run: gleam test --target erlang
+        run: gleam test --target erlang
 
       - name: Test (NodeJS)
-      - run: gleam test --runtime node --target javascript
+        run: gleam test --runtime node --target javascript
 
       - name: Test (Deno)
-      - run: gleam test --runtime deno --target javascript
+        run: gleam test --runtime deno --target javascript
