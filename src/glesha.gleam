@@ -23,6 +23,6 @@ pub fn hmac(
 ) -> BitString
 
 /// Converts `BitString` into a lowercase hexadecimal string.
-@external(erlang, "sha2_ffi", "hex")
-@external(javascript, "./sha2_ffi.mjs", "hex")
-pub fn hex(input: BitString) -> String
+@external(erlang, "sha2_ffi", "encode_hex")
+@external(javascript, "./sha2_ffi.mjs", "encode_hex")
+pub fn encode_hex(input: BitString) -> String

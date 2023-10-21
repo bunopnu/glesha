@@ -55,7 +55,7 @@ pub fn sha512_test() {
     "howdy!"
     |> bit_string.from_string()
     |> glesha.hash(glesha.Sha512)
-    |> glesha.hex()
+    |> glesha.encode_hex()
 
   let expected =
     "d3799df317dfcca3527b8601c9fc0f1209be5551fe68c5d76cd15089fcaaa61bd2eb43ff0b919793f4674e00a5c7427cab7f2e153edb230922e5e96ddd3f6269"
@@ -74,7 +74,7 @@ pub fn sha256_hmac_test() {
   let hmac =
     data
     |> glesha.hmac(key, glesha.Sha256)
-    |> glesha.hex()
+    |> glesha.encode_hex()
 
   let expected =
     "5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843"

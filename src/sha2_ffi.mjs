@@ -19,7 +19,7 @@ export function hmac(data, key, algorithm) {
   return new BitString(nhHmac(hasher, keyBuffer, dataBuffer));
 }
 
-export function hex(input) {
+export function encode_hex(input) {
   const inputBuffer = input.buffer;
 
   return [...inputBuffer]

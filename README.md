@@ -20,7 +20,7 @@ gleam add glesha
 "howdy!"
 |> bit_string.from_string()
 |> glesha.hash(glesha.Sha256)
-|> glesha.hex()
+|> glesha.encode_hex()
 // 08419486253228102a04995a0376ffdaec0bf1dbaf9cff3669f34d29ad483a02
 ```
 
