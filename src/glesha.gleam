@@ -8,12 +8,12 @@ pub type HashAlgorithm {
   Sha512
 }
 
-/// Computes the hash of the given input using the specified `Algorithm`.
+/// Computes the hash of the given input using the specified `HashAlgorithm`.
 @external(erlang, "sha2_ffi", "hash")
 @external(javascript, "./sha2_ffi.mjs", "hash")
 pub fn hash(input: BitArray, algorithm: HashAlgorithm) -> BitArray
 
-/// Generates an HMAC using the specified `Algorithm`.
+/// Generates an HMAC using the specified `HashAlgorithm`.
 @external(erlang, "sha2_ffi", "hmac")
 @external(javascript, "./sha2_ffi.mjs", "hmac")
 pub fn hmac(data: BitArray, key: BitArray, algorithm: HashAlgorithm) -> BitArray
