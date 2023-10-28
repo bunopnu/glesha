@@ -1,14 +1,14 @@
 import { sha224, sha256, sha384, sha512 } from "./nh_sha2.mjs"
 import { hmac as nhHmac } from "./nh_hmac.mjs"
 
-import { BitString } from "./gleam.mjs"
+import { BitArray } from "./gleam.mjs"
 import { Sha224, Sha256, Sha384, Sha512 } from "./glesha.mjs"
 
 export function hash(data, algorithm) {
   const dataBuffer = data.buffer;
   const hasher = getHashFunction(algorithm);
 
-  return new BitString(hasher(dataBuffer));
+  return new BitArray(hasher(dataBuffer));
 }
 
 export function hmac(data, key, algorithm) {
@@ -17,7 +17,7 @@ export function hmac(data, key, algorithm) {
 
   const hasher = getHashFunction(algorithm);
 
-  return new BitString(nhHmac(hasher, keyBuffer, dataBuffer));
+  return new BitArray(nhHmac(hasher, keyBuffer, dataBuffer));
 }
 
 export function encode_hex(input) {
