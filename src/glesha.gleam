@@ -18,7 +18,7 @@ pub fn hash(input: BitArray, algorithm: HashAlgorithm) -> BitArray
 @external(javascript, "./sha2_ffi.mjs", "hmac")
 pub fn hmac(data: BitArray, key: BitArray, algorithm: HashAlgorithm) -> BitArray
 
-/// Converts `BitString` into a lowercase hexadecimal string.
+/// Converts `BitArray` into a lowercase hexadecimal string.
 @external(erlang, "sha2_ffi", "encode_hex")
 @external(javascript, "./sha2_ffi.mjs", "encode_hex")
 pub fn encode_hex(input: BitArray) -> String

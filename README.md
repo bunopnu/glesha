@@ -14,6 +14,10 @@ To add the library, simply execute the following command:
 gleam add glesha
 ```
 
+## Compatibility
+
+This library requires Gleam version `0.32.0` or later.
+
 ## Example
 
 ```gleam
