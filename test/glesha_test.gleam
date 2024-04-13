@@ -1,6 +1,6 @@
 import gleeunit
 import gleeunit/should
-import gleam/bit_string
+import gleam/bit_array
 import glesha
 
 pub fn main() {
@@ -53,7 +53,7 @@ pub fn sha512_empty_test() {
 pub fn sha512_test() {
   let hash =
     "howdy!"
-    |> bit_string.from_string()
+    |> bit_array.from_string()
     |> glesha.hash(glesha.Sha512)
     |> glesha.encode_hex()
 
@@ -64,12 +64,12 @@ pub fn sha512_test() {
 }
 
 pub fn sha256_hmac_test() {
-  let key = bit_string.from_string("Jefe")
+  let key = bit_array.from_string("Jefe")
 
   let data =
     "what do ya want "
-    |> bit_string.from_string()
-    |> bit_string.append(bit_string.from_string("for nothing?"))
+    |> bit_array.from_string()
+    |> bit_array.append(bit_array.from_string("for nothing?"))
 
   let hmac =
     data
