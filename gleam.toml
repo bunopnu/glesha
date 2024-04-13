@@ -1,5 +1,5 @@
 name = "glesha"
-version = "0.1.3"
+version = "0.1.4"
 description = "SHA-2 for Gleam"
 gleam = ">= 1.0.0"
 
